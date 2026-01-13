@@ -1,0 +1,25 @@
+# Website Management Skill
+
+This skill helps manage the personal website at /home/zeero/Desktop/oss/website.
+
+## Site Structure
+
+- `index.html` - Main homepage
+- `reading-list.html` - Reading list with papers and blogs
+- `style.css` - Site styles
+
+## Common Tasks
+
+### Adding to Reading List
+To add a new item to the reading list, edit `reading-list.html` and add a new `<li>` entry in the `<ul class="links">` section:
+```html
+<li><a href="URL" target="_blank">Title - Author</a></li>
+```
+
+### Adding New Pages
+1. Create a new HTML file following the structure of existing pages
+2. Link it from `index.html` navigation or relevant sections
+3. Include the shared `style.css`
+
+### Deploying
+The site can be pushed to GitHub for hosting via GitHub Pages.
