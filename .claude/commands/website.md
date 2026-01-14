@@ -23,3 +23,5 @@ To add a new item to the reading list, edit `reading-list.html` and add a new `<
 
 ### Deploying
 The site can be pushed to GitHub for hosting via GitHub Pages.
+
+**IMPORTANT**: Always commit and push changes after any edit to keep the live site in sync.

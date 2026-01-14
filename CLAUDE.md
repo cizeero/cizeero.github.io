@@ -20,6 +20,10 @@ Keep the skill up-to-date without being asked. The skill should always reflect t
 - `reading-list.html` - Reading list page
 - `style.css` - Shared styles
 
+## Workflow
+
+**Always push changes after making edits.** Commit and push to keep the live site in sync.
+
 ## Quick Reference
 
 ### Adding to Reading List
