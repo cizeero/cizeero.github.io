@@ -120,6 +120,15 @@ section p {
     flex-wrap: wrap;
 }
 
+.links.focus-list {
+    flex-direction: column;
+    gap: 1rem;
+}
+
+ul.links {
+    list-style: none;
+}
+
 .links a {
     color: var(--accent);
     text-decoration: none;
