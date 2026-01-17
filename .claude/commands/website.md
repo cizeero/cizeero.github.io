@@ -6,6 +6,7 @@ This skill helps manage the personal website at /home/zeero/Desktop/oss/website.
 
 - `index.html` - Main homepage
 - `reading-list.html` - Reading list with papers and blogs
+- `completed-reading.html` - Completed reading with topic-based blog collections
 - `currently-focused.html` - Currently focused areas hub page
   - `ml-fundamentals.html` - Machine Learning Fundamentals
   - `system-design-agentic.html` - System Design for Agentic Systems
