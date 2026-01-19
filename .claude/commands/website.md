@@ -5,6 +5,9 @@ This skill helps manage the personal website at /home/zeero/Desktop/oss/website.
 ## Site Structure
 
 - `index.html` - Main homepage
+- `blog.html` - Blog index page
+- `blog/` - Blog posts directory
+  - `inquiry.html` - Inquiry post
 - `reading-list.html` - Reading list with papers and blogs
 - `completed-reading.html` - Completed reading with topic-based blog collections
 - `currently-focused.html` - Currently focused areas hub page
@@ -14,6 +17,11 @@ This skill helps manage the personal website at /home/zeero/Desktop/oss/website.
 - `style.css` - Site styles
 
 ## Common Tasks
+
+### Adding a Blog Post
+1. Create a new HTML file in `blog/` (e.g., `blog/my-post.html`)
+2. Use `blog/inquiry.html` as a template
+3. Add a link to the new post in `blog.html` in the `<ul class="links">` section
 
 ### Adding to Reading List
 To add a new item to the reading list, edit `reading-list.html` and add a new `<li>` entry in the `<ul class="links">` section:
