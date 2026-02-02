@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursive Language Models - Cizeero</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+</head>
+<body>
+    <div class="container" style="justify-content: flex-start;">
+        <header>
+            <h1>Recursive Language Models</h1>
+        </header>
+
+        <nav>
+            <a href="../blog.html">Blog</a>
+            <a href="../index.html">Home</a>
+        </nav>
+
+        <article class="blog-post">
+            <p>This post is about the paper <a href="https://www.alphaxiv.org/abs/2512.24601" target="_blank">Recursive Language Models</a> by Zhang, Kraska, and Khattab. The core idea is elegant: instead of forcing an LLM to ingest an entire long context at once, let it programmatically examine, decompose, and recursively call itself over snippets of the input. The model writes code to selectively access and process portions of text dynamically, enabling it to handle inputs up to 100x longer than its native context window.</p>
+
+            <p>I used this concept in an agentic system with a summarization hybrid approach, making previous chats searchable. The agent can recursively examine conversation history, summarizing and indexing as needed, then query specific portions when relevant context is required. When I read about it, the idea seemed so obvious, yet no one made it for such a long time.</p>
+        </article>
+
+        <footer>
+            <a href="../blog.html">&larr; Back to blog</a>
+        </footer>
+    </div>
+</body>
+</html>
