@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Byte-Pair Encoding - Cizeero</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+</head>
+<body>
+    <div class="container" style="justify-content: flex-start;">
+        <header>
+            <h1>Byte-Pair Encoding</h1>
+        </header>
+
+        <nav>
+            <a href="../blog.html">Blog</a>
+            <a href="../index.html">Home</a>
+        </nav>
+
+        <article class="blog-post">
+            <p>Before a language model sees any text, the text has to be broken into tokens. Not words, but maybe something in between. The most common algorithm for this is Byte-Pair Encoding (BPE):</p>
+
+            <p>The algorithm is:</p>
+            <ol>
+                <li>Start with a base vocabulary of all 256 individual bytes (so any text can be represented, no matter the language or encoding)</li>
+                <li>Scan a large text corpus and find the most frequent adjacent pair of tokens (e.g., t + h appears 1M times)</li>
+                <li>Merge that top pair into a new token (th) and add it to the vocabulary</li>
+                <li>Repeat until you hit your target vocabulary size (e.g., 32k, 50k, 128k tokens)</li>
+            </ol>
+
+            <p>This is stastical in nature and reflects the occurences of characters and words occuring together. Since it does not distinguish based on the character size of tokens, it can have multi-word chunks as a single token as well. Then it perhaps does some form of prefix matching, longest string of characters that match a token will be the chosen token. GPT-2 learned 50,000 merges. GPT-4o learned roughly 200,000. The base vocabulary of 256 bytes is the trick, you are guaranteed to never encounter an unknown token.</p>
+
+            <p>This was originally a data compression algorithm, compressing text by replacing frequent patterns with single symbols. The fact that this also happens to produce good linguistic units for a neural network to reason over is a happy coincidence, <em>or maybe not a coincidence at all.</em></p>
+
+            <p>Each token now carries more information on average, so entropy per token actually goes up, not down. A token like "th" carries more information than "t" alone. The sequence gets shorter but each element is denser -- you're not losing information, you're packing it tighter.</p>
+
+            <h2>Alternate Approaches</h2>
+
+            <p><strong>WordPiece</strong> is used by BERT and its descendants. It looks similar to BPE -- bottom-up, merging pairs -- but the merge criterion is different. BPE merges whichever pair appears most frequently. WordPiece scores each candidate merge by:</p>
+
+            <p>score(a, b) = freq(ab) / (freq(a) &times; freq(b))</p>
+
+            <p>It's the pair frequency divided by the product of the individual frequencies. This means WordPiece is really asking: "How much more often do these two tokens appear together than you'd expect by chance?" It measures association strength, not raw count.</p>
+
+            <p>Say "th" appears 50,000 times as a pair, and "qz" appears 500 times. BPE picks "th" because 50,000 > 500. But WordPiece might notice that virtually every time "q" and "z" appear in the data, they appear together -- so their score could still be competitive, because the denominator is so small. Conversely, "t" and "h" are both super common individually, so the denominator is huge and the score gets dragged down even though the raw count is high.</p>
+
+            <p>These two actually have clean information-theoretic interpretations. BPE is greedy compression -- each merge replaces two tokens with one, reducing the total number of tokens needed to represent the corpus. By always merging the most frequent pair, you get the biggest reduction per step. This is greedily minimizing the description length of the corpus. It's the same intuition behind Huffman coding: find repeated patterns and replace them with shorter representations.</p>
+
+            <p>WordPiece is maximizing pointwise mutual information (PMI). That score:</p>
+
+            <p>freq(ab) / (freq(a) &times; freq(b))</p>
+
+            <p>is directly related to PMI, defined as:</p>
+
+            <p>PMI(a, b) = log( P(a,b) / (P(a) &times; P(b)) )</p>
+
+            <p>PMI measures how much more two things co-occur than you'd expect if they were independent. WordPiece is essentially merging the pair with the highest mutual information -- the pair that's most statistically dependent. This is equivalent to saying: merge the pair that maximizes the likelihood of a unigram language model over the corpus, which in turn is equivalent to minimizing the cross-entropy between the model and the data.</p>
+
+            <p>So the contrast is: BPE asks "what makes the corpus shortest?" (raw compression), while WordPiece asks "what makes the corpus most probable under a statistical model?" (minimize cross-entropy). They often give similar results, but WordPiece is doing something slightly more principled -- it's optimizing a proper statistical objective rather than just counting.</p>
+
+            <p>WordPiece is mostly confined to the BERT ecosystem and encoder-only models. BPE remains the default for decoder-only LLMs -- it is simple, fast, deterministic, and produces good enough tokenizations.</p>
+
+            <p>The choice of tokenizer is one of those decisions that seems minor but ripples through everything. Vocabulary size affects model size, sequence length, API costs, and even what the model can "see" in its context window. Fewer tokens per text means more text fits in the window. A tokenizer that splits code poorly will produce a model that reasons about code poorly. It's the very first transformation the data undergoes, and everything downstream inherits its choices.</p>
+        </article>
+
+        <footer>
+            <a href="../blog.html">&larr; Back to blog</a>
+        </footer>
+    </div>
+</body>
+</html>
