@@ -129,34 +129,9 @@ section p {
     color: var(--text-muted);
 }
 
-.hero {
-    margin-bottom: 1.5rem;
-}
-
-.hero-title {
-    font-size: 1.4rem;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-}
-
-.hero-title a {
-    color: var(--cyan);
-    text-decoration: none;
-}
-
-.hero-title a:hover {
-    text-decoration: underline;
-}
-
-.hero-exp {
-    font-size: 1.15rem;
-    color: var(--text-muted);
-}
-
-.hero-exp .divider {
+.divider {
     color: var(--purple);
     margin: 0 0.3rem;
-    font-weight: 300;
 }
 
 .intro {
