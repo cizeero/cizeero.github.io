@@ -8,25 +8,41 @@
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 </head>
 <body>
-    <div class="container" style="justify-content: flex-start;">
-        <header>
+    <button class="sidebar-toggle" onclick="toggleSidebar()">&#9776;</button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1><a href="../index.html">Cizeero</a></h1>
+                <p class="tagline">El Psy Congroo</p>
+            </div>
+            <nav>
+                <a href="../blog.html" class="active">Blog</a>
+                <a href="../currently-focused.html">Currently Focused</a>
+                <a href="../reading-list.html">Reading List</a>
+                <a href="../completed-reading.html">Completed Reading</a>
+                <a href="https://github.com/cizeero" target="_blank">GitHub &#8599;</a>
+            </nav>
+        </aside>
+        <main class="main">
             <h1>Recursive Language Models</h1>
-        </header>
 
-        <nav>
-            <a href="../blog.html">Blog</a>
-            <a href="../index.html">Home</a>
-        </nav>
+            <article class="blog-post">
+                <p>This post is about the paper <a href="https://www.alphaxiv.org/abs/2512.24601" target="_blank">Recursive Language Models</a> by Zhang, Kraska, and Khattab. The core idea is elegant: instead of forcing an LLM to ingest an entire long context at once, let it programmatically examine, decompose, and recursively call itself over snippets of the input. The model writes code to selectively access and process portions of text dynamically, enabling it to handle inputs up to 100x longer than its native context window.</p>
 
-        <article class="blog-post">
-            <p>This post is about the paper <a href="https://www.alphaxiv.org/abs/2512.24601" target="_blank">Recursive Language Models</a> by Zhang, Kraska, and Khattab. The core idea is elegant: instead of forcing an LLM to ingest an entire long context at once, let it programmatically examine, decompose, and recursively call itself over snippets of the input. The model writes code to selectively access and process portions of text dynamically, enabling it to handle inputs up to 100x longer than its native context window.</p>
+                <p>I used this concept in an agentic system with a summarization hybrid approach, making previous chats searchable. The agent can recursively examine conversation history, summarizing and indexing as needed, then query specific portions when relevant context is required. When I read about it, the idea seemed so obvious, yet no one made it for such a long time.</p>
+            </article>
 
-            <p>I used this concept in an agentic system with a summarization hybrid approach, making previous chats searchable. The agent can recursively examine conversation history, summarizing and indexing as needed, then query specific portions when relevant context is required. When I read about it, the idea seemed so obvious, yet no one made it for such a long time.</p>
-        </article>
-
-        <footer>
-            <a href="../blog.html">&larr; Back to blog</a>
-        </footer>
+            <footer>
+                <a href="../blog.html">&larr; Back to blog</a>
+            </footer>
+        </main>
     </div>
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+            document.querySelector('.sidebar-overlay').classList.toggle('open');
+        }
+    </script>
 </body>
 </html>

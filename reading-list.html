@@ -8,37 +8,49 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
-    <div class="container">
-        <header>
+    <button class="sidebar-toggle" onclick="toggleSidebar()">&#9776;</button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1><a href="index.html">Cizeero</a></h1>
+                <p class="tagline">El Psy Congroo</p>
+            </div>
+            <nav>
+                <a href="blog.html">Blog</a>
+                <a href="currently-focused.html">Currently Focused</a>
+                <a href="reading-list.html" class="active">Reading List</a>
+                <a href="completed-reading.html">Completed Reading</a>
+                <a href="https://github.com/cizeero" target="_blank">GitHub &#8599;</a>
+            </nav>
+        </aside>
+        <main class="main">
             <h1>Reading List</h1>
-            <p class="tagline">Papers and blogs I'm currently reading</p>
-        </header>
+            <p class="page-desc">Papers and blogs I'm currently reading</p>
 
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="https://github.com/cizeero" target="_blank">GitHub</a>
-        </nav>
-
-        <section>
-            <h2>Current</h2>
-            <ul class="links">
-                <li><a href="https://arxiv.org/pdf/2602.16849" target="_blank">On the Mechanism and Dynamics of Modular Addition - He, Wang, Chen, Yang</a></li>
-                <li><a href="https://www.princeton.edu/~wbialek/our_papers/tishby+al_99.pdf" target="_blank">The Information Bottleneck Method - Tishby, Pereira, Bialek</a></li>
-                <li><a href="https://kellerjordan.github.io/posts/muon/" target="_blank">Muon: An optimizer for hidden layers in neural networks - Keller Jordan</a></li>
-                <li><a href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/" target="_blank">What are Diffusion Models? - Lilian Weng</a></li>
-                <li><a href="https://jax-ml.github.io/scaling-book/" target="_blank">How to Scale Your Model - JAX ML</a></li>
-                <li><a href="http://neuralnetworksanddeeplearning.com/chap2.html" target="_blank">How the Backpropagation Algorithm Works - Michael Nielsen</a></li>
-                <li><a href="https://arxiv.org/pdf/2501.14787" target="_blank">Matrix Calculus (for Machine Learning and Beyond) - Bright, Edelman, Johnson</a></li>
-                <li><a href="https://web.stanford.edu/class/cs379c/archive/2012/suggested_reading_list/documents/LeCunetal06.pdf" target="_blank">A Tutorial on Energy-Based Learning - LeCun, Chopra, Hadsell, Ranzato, Huang</a></li>
-                <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5167251/" target="_blank">Active Inference and Learning - Friston et al.</a></li>
-                <li><a href="https://arxiv.org/abs/2208.11173" target="_blank">The Alberta Plan for AI Research - Sutton, Bowling, Pilarski</a></li>
-                <li><a href="https://openreview.net/forum?id=BZ5a1r-kVsf" target="_blank">A Path Towards Autonomous Machine Intelligence - Yann LeCun</a></li>
-            </ul>
-        </section>
-
-        <footer>
-            <a href="index.html">&larr; Back to home</a>
-        </footer>
+            <section>
+                <h2>Current</h2>
+                <ul class="links">
+                    <li><a href="https://arxiv.org/pdf/2602.16849" target="_blank">On the Mechanism and Dynamics of Modular Addition - He, Wang, Chen, Yang</a></li>
+                    <li><a href="https://www.princeton.edu/~wbialek/our_papers/tishby+al_99.pdf" target="_blank">The Information Bottleneck Method - Tishby, Pereira, Bialek</a></li>
+                    <li><a href="https://kellerjordan.github.io/posts/muon/" target="_blank">Muon: An optimizer for hidden layers in neural networks - Keller Jordan</a></li>
+                    <li><a href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/" target="_blank">What are Diffusion Models? - Lilian Weng</a></li>
+                    <li><a href="https://jax-ml.github.io/scaling-book/" target="_blank">How to Scale Your Model - JAX ML</a></li>
+                    <li><a href="http://neuralnetworksanddeeplearning.com/chap2.html" target="_blank">How the Backpropagation Algorithm Works - Michael Nielsen</a></li>
+                    <li><a href="https://arxiv.org/pdf/2501.14787" target="_blank">Matrix Calculus (for Machine Learning and Beyond) - Bright, Edelman, Johnson</a></li>
+                    <li><a href="https://web.stanford.edu/class/cs379c/archive/2012/suggested_reading_list/documents/LeCunetal06.pdf" target="_blank">A Tutorial on Energy-Based Learning - LeCun, Chopra, Hadsell, Ranzato, Huang</a></li>
+                    <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5167251/" target="_blank">Active Inference and Learning - Friston et al.</a></li>
+                    <li><a href="https://arxiv.org/abs/2208.11173" target="_blank">The Alberta Plan for AI Research - Sutton, Bowling, Pilarski</a></li>
+                    <li><a href="https://openreview.net/forum?id=BZ5a1r-kVsf" target="_blank">A Path Towards Autonomous Machine Intelligence - Yann LeCun</a></li>
+                </ul>
+            </section>
+        </main>
     </div>
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+            document.querySelector('.sidebar-overlay').classList.toggle('open');
+        }
+    </script>
 </body>
 </html>

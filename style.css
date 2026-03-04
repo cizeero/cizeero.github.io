@@ -5,6 +5,7 @@
     --text-muted: #8b949e;
     --accent: #58a6ff;
     --border: #30363d;
+    --sidebar-width: 250px;
 }
 
 * {
@@ -21,55 +22,88 @@ body {
     min-height: 100vh;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
+.layout {
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 1fr;
     min-height: 100vh;
+}
+
+.sidebar {
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border);
+    padding: 2rem 1.5rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 3rem;
+.sidebar-header {
+    margin-bottom: 2rem;
 }
 
-header h1 {
-    font-size: 2.5rem;
+.sidebar-header h1 {
+    font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
 }
 
-.tagline {
-    color: var(--text-muted);
-    font-size: 1.2rem;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 4rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--border);
-}
-
-nav a {
-    color: var(--text-muted);
+.sidebar-header h1 a {
+    color: var(--text);
     text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.2s;
 }
 
-nav a:hover {
+.sidebar-header h1 a:hover {
     color: var(--accent);
 }
 
+.sidebar-header .tagline {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+}
+
+.sidebar nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.sidebar nav a:hover {
+    color: var(--accent);
+}
+
+.sidebar nav a.active {
+    color: var(--accent);
+}
+
+.main {
+    padding: 3rem 4rem;
+    max-width: 900px;
+    overflow-y: auto;
+}
+
+.main h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.main .page-desc {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
 section {
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 
 section h2 {
@@ -80,6 +114,12 @@ section h2 {
 
 section p {
     color: var(--text-muted);
+}
+
+.intro {
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    font-size: 1.05rem;
 }
 
 .project-grid {
@@ -139,11 +179,20 @@ ul.links {
 }
 
 footer {
-    text-align: center;
+    margin-top: 3rem;
     padding-top: 2rem;
     border-top: 1px solid var(--border);
     color: var(--text-muted);
     font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--accent);
 }
 
 .blog-post {
@@ -156,16 +205,76 @@ footer {
     text-align: justify;
 }
 
-@media (max-width: 600px) {
-    .container {
-        padding: 2rem 1rem;
+.blog-post ol, .blog-post ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.blog-post li {
+    margin-bottom: 0.5rem;
+}
+
+.blog-post h2 {
+    margin-top: 2rem;
+}
+
+/* Mobile hamburger toggle */
+.sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1001;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 1.5rem;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    line-height: 1;
+}
+
+.sidebar-overlay {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .layout {
+        grid-template-columns: 1fr;
     }
 
-    header h1 {
-        font-size: 2rem;
+    .sidebar {
+        position: fixed;
+        left: -280px;
+        top: 0;
+        width: 280px;
+        z-index: 1000;
+        transition: left 0.3s ease;
     }
 
-    nav {
-        gap: 1rem;
+    .sidebar.open {
+        left: 0;
+    }
+
+    .sidebar-toggle {
+        display: block;
+    }
+
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    .sidebar-overlay.open {
+        display: block;
+    }
+
+    .main {
+        padding: 3rem 1.5rem;
+        padding-top: 4rem;
     }
 }

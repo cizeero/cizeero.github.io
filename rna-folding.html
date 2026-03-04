@@ -8,28 +8,43 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
-    <div class="container">
-        <header>
+    <button class="sidebar-toggle" onclick="toggleSidebar()">&#9776;</button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1><a href="index.html">Cizeero</a></h1>
+                <p class="tagline">El Psy Congroo</p>
+            </div>
+            <nav>
+                <a href="blog.html">Blog</a>
+                <a href="currently-focused.html">Currently Focused</a>
+                <a href="reading-list.html">Reading List</a>
+                <a href="completed-reading.html">Completed Reading</a>
+                <a href="https://github.com/cizeero" target="_blank">GitHub &#8599;</a>
+            </nav>
+        </aside>
+        <main class="main">
             <h1>RNA Folding Solutions</h1>
-            <p class="tagline">Predicting 3D RNA structures</p>
-        </header>
+            <p class="page-desc">Predicting 3D RNA structures</p>
 
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="currently-focused.html">Currently Focused</a>
-            <a href="reading-list.html">Reading List</a>
-        </nav>
+            <section>
+                <h2>Resources</h2>
+                <ul class="links">
+                    <li><a href="https://www.kaggle.com/competitions/stanford-rna-3d-folding-2/overview" target="_blank">Stanford RNA 3D Folding Competition - Kaggle</a></li>
+                </ul>
+            </section>
 
-        <section>
-            <h2>Resources</h2>
-            <ul class="links">
-                <li><a href="https://www.kaggle.com/competitions/stanford-rna-3d-folding-2/overview" target="_blank">Stanford RNA 3D Folding Competition - Kaggle</a></li>
-            </ul>
-        </section>
-
-        <footer>
-            <a href="currently-focused.html">&larr; Back to Currently Focused</a>
-        </footer>
+            <footer>
+                <a href="currently-focused.html">&larr; Back to Currently Focused</a>
+            </footer>
+        </main>
     </div>
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+            document.querySelector('.sidebar-overlay').classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
