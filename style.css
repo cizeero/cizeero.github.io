@@ -208,8 +208,8 @@ section p {
 
 .links {
     display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
 .links.focus-list {
@@ -225,10 +225,6 @@ ul.links li {
     margin-bottom: 0.5rem;
 }
 
-ul.links.blog-list {
-    flex-direction: column;
-    gap: 0.75rem;
-}
 
 .links a {
     color: var(--cyan);
