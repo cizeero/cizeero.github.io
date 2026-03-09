@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brightness to Night Mode - Cizeero</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+</head>
+<body>
+    <button class="sidebar-toggle" onclick="toggleSidebar()">&#9776;</button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1><a href="../index.html">Cizeero</a></h1>
+                <p class="tagline">El Psy Congroo</p>
+            </div>
+            <nav>
+                <a href="../blog.html" class="active">Blog</a>
+                <a href="../currently-focused.html">Currently Focused</a>
+                <a href="../reading-list.html">Reading List</a>
+                <a href="../completed-reading.html">Completed Reading</a>
+                <a href="https://github.com/cizeero" target="_blank">GitHub &#8599;</a>
+            </nav>
+        </aside>
+        <main class="main">
+            <h1>Brightness to Night Mode</h1>
+
+            <article class="blog-post">
+                <p>I run Sway on Fedora. I already had a <code>nightshift</code> script that shifts my display into warm amber tones using <code>wl-gammarelay-rs</code>; low mode at 4000K, high mode at 2500K where everything becomes near-monochrome amber, I used this almost every night. But I kept noticing the friction of manually running <code>nightshift low</code> when I have already hit 0% brightness. Two separate controls for what is really one continuous action, less light. So I made it into one. When brightness hits 0% and you press the brightness-down key again, it enters nightshift low and then nightshift high.</p>
+
+                <p>The implementation is a 80-line bash script that sits between the brightness keys and <code>brightnessctl</code>. It checks the current color temperature via DBus to know which mode it's in, and decides what to do next. The sway config override is 2 lines. I never read the script, it purely written via claude code, first time it bugged, the next time it worked and I haven't touched it since. The entire display pipeline is yours, do whatever you want with it. <code>wl-gammarelay-rs</code> exposes gamma, temperature, and brightness as DBus properties. <code>brightnessctl</code> talks to the kernel backlight interface. Sway lets you rebind any key to any commands, the actual interfaces designed to be composed. Wire them together and you get something for yourself, on a personal level. A couple more effort and I can have schedule working in background, with just one more claude code command, but my non existent schedule prompts to a non existent nightshift cycle.</p>
+
+                <p>Its a real argument for Linux, because that it treats the computer as a thing you can completely modify. All the layers are accessible. The cost is that you receive an unpolished experience but that's the payoff because you polish it yourself</p>
+            </article>
+
+            <footer>
+                <a href="../blog.html">&larr; Back to blog</a>
+            </footer>
+        </main>
+    </div>
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+            document.querySelector('.sidebar-overlay').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
