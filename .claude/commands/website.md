@@ -9,6 +9,8 @@ All pages use a persistent sidebar layout (CSS grid: 250px sidebar + main conten
 - `index.html` - Homepage (intro + blog list)
 - `blog.html` - Blog index page
 - `blog/` - Blog posts directory (use `../` relative paths for CSS/links)
+  - `programming-still-fun.html` - Programming is still fun
+  - `brightness-nightshift.html` - Brightness to Night Mode
   - `selfish.html` - Building Product for Selfish Reasons
   - `bpe.html` - Byte-Pair Encoding
   - `differentiation.html` - Differentiation

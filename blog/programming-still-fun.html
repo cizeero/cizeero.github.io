@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming is still fun - Cizeero</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+</head>
+<body>
+    <button class="sidebar-toggle" onclick="toggleSidebar()">&#9776;</button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1><a href="../index.html">Cizeero</a></h1>
+                <p class="tagline">El Psy Congroo</p>
+            </div>
+            <nav>
+                <a href="../blog.html" class="active">Blog</a>
+                <a href="../currently-focused.html">Currently Focused</a>
+                <a href="../reading-list.html">Reading List</a>
+                <a href="../completed-reading.html">Completed Reading</a>
+                <a href="https://github.com/cizeero" target="_blank">GitHub &#8599;</a>
+            </nav>
+        </aside>
+        <main class="main">
+            <h1>Programming is still fun</h1>
+
+            <article class="blog-post">
+                <p>I have realised the reason why the new age programming and engineering may not be as fun as before is because the scope of experimentation has shifted. Programming felt deterministic, testable, based on some logic that you could learn and adapt over time. There were also tons of projects, and systems in place for you to build and get better at this very learnable skill. Further, there was no sense of doubt on its utility. In a sense, the bitter lesson is always dawning upon whatever you do. Just running experiments, and letting machines learn from them seems to be a better approach, than trying to improve your own skills. This skill, of running experimentation seems to be getting more and more meta by time, and the person with the ability to run more experiments, to burn more tokens, is the one that may end up winning and levelling up, putting the rest of us in the permanent underclass.</p>
+
+                <p>The small scale stuff does not work on the large scale, you building good harnesses for small models does not scale to larger models. What small models are incapable of following for a very long time, the larger model one shots it with a single agent. New models, also might just end up killing the purpose of your entire harness, because they have been so well RLed that the model starts to do it out of the box. To make things worse, every time you make a solid harness, that is serving a purpose, either the bitter lesson snipes you, where someone else makes a better harness by just sheer amount of telemetry, or the model one shots your entire task. So in such a world, what even gives someone a hope for programming, building tools around LLMs?</p>
+
+                <p>They are not what should be built in, as their complexity is endless; instead we should build in only the meta-methods that can find and capture this arbitrary complexity. Essential to these methods is that they can find good approximations, but the search for them should be by our methods, not by us.</p>
+
+                <h2>Picking Problems, not Tools</h2>
+
+                <p>This was something I learned very early onto my programming career, learning tools is the quickest way of becoming replaceable. Pick a broad domain of interesting problems to solve, rather than trying to become a master of tools. New tools, only help you get better at this, and for that you need to become the domain expert, with the knowledge of tools, rather than the other way around. Unfortunately that is something I have an endless battle with, because there is very little domain I am actually interested beyond just programming and computer science. There are times when computers are sufficient for me to enter a phase of passion and hardwork, sometimes it is not. There is no end to these phases.</p>
+
+                <p>But perhaps that is the point. If tools are destined to become black boxes, then the meta-problem of <em>"building systems that build"</em> is the only domain that remains truly resilient. It is the one challenge where the search for the solution is as valuable as the solution itself.</p>
+
+                <h2>Actually Build Interesting Things</h2>
+
+                <p>The reason why one might feel that programming has gotten boring, and vibe coding is solving everything is because they have been building CRUD apps and not 3D game engines that require a deep understanding of a lot of things, and even if you are trying to build a 3D game engine without understanding the technicals, and are more focused on improving the meta, you will still run into interesting challenges, because difficult things are interesting, even on a meta level.</p>
+
+                <p>You need to scale your ambitions with the tools that are present in your hand, this is a treadmill, and if your legs are not getting tired, you increase the speed.</p>
+
+                <h2>If Bored, go Meta</h2>
+
+                <p>This has been the pattern of software engineers, if a problem gets too repetetive, it gets boring, and when it gets boring, there is always a software engineer that tries to automate it. This stems from boredom, not necessity. We don't automate just to save time; we automate to clear the path for the next layer of complexity. The goal isn't to reach a finish line where no work remains, but to ensure that the work we do remains worthy of our attention.</p>
+
+                <p>Regardless of all this, do not forget to have fun. And if you are not having fun, its because you are not actively participating in the activity, you are letting something else take control, someone else make decisions for you. The fun comes when you make decisions, make mistakes and then actually watch yourself improve, and this applies regardless of which meta level you are currently at.</p>
+            </article>
+
+            <footer>
+                <a href="../blog.html">&larr; Back to blog</a>
+            </footer>
+        </main>
+    </div>
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+            document.querySelector('.sidebar-overlay').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
