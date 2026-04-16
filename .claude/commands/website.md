@@ -39,8 +39,12 @@ Blog posts have larger font (1.15rem), colored bold (orange), italic (yellow), h
 ### Adding a Blog Post
 1. Create a new HTML file in `blog/` (e.g., `blog/my-post.html`)
 2. Use `blog/inquiry.html` as a template - includes sidebar with `../` relative paths
-3. Add a link to the new post in both `blog.html` and `index.html` in the `<ul class="links">` sections
-4. Set `class="active"` on the Blog nav link in sidebar
+3. **Add the link to BOTH blog lists (required — do not skip either):**
+   - `index.html` — inside `<ul class="links blog-list">` (homepage blog section)
+   - `blog.html` — inside `<ul class="links">` (blog index page)
+   - Place the new entry at the top (newest first ordering)
+4. Set `class="active"` on the Blog nav link in the post's sidebar
+5. Update this skill file's blog file listing under `blog/` in Site Structure
 
 ### Adding to Reading List
 Edit `reading-list.html` and add a new `<li>` entry in the `<ul class="links">` section:
