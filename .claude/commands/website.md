@@ -7,6 +7,7 @@ This skill helps manage the personal website at /home/zeero/Desktop/oss/website.
 All pages use a persistent sidebar layout (CSS grid: 250px sidebar + main content).
 
 - `index.html` - Homepage (intro + blog list)
+- `hope.pdf` - Hope essay, linked below Masters thesis in the homepage Research list
 - `blog.html` - Blog index page
 - `blog/` - Blog posts directory (use `../` relative paths for CSS/links)
   - `programming-still-fun.html` - Programming is still fun
