@@ -10,6 +10,7 @@ All pages use a persistent sidebar layout (CSS grid: 250px sidebar + main conten
 - `hope.pdf` - Hope essay, linked below Masters thesis in the homepage Research list
 - `blog.html` - Blog index page
 - `blog/` - Blog posts directory (use `../` relative paths for CSS/links)
+  - `eth.html` - ETH (source: `eth.md` in the project root)
   - `programming-still-fun.html` - Programming is still fun
   - `brightness-nightshift.html` - Brightness to Night Mode
   - `selfish.html` - Building Product for Selfish Reasons

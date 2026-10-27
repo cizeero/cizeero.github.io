@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETH - Cizeero</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+</head>
+<body>
+    <button class="sidebar-toggle" onclick="toggleSidebar()">&#9776;</button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1><a href="../index.html">Cizeero</a></h1>
+                <p class="tagline">El Psy Congroo</p>
+            </div>
+            <nav>
+                <a href="../blog.html" class="active">Blog</a>
+                <a href="../currently-focused.html">Currently Focused</a>
+                <a href="../reading-list.html">Reading List</a>
+                <a href="../completed-reading.html">Completed Reading</a>
+                <a href="https://github.com/cizeero" target="_blank">GitHub &#8599;</a>
+            </nav>
+        </aside>
+        <main class="main">
+            <h1>ETH</h1>
+
+            <article class="blog-post">
+                <blockquote>
+                    <p><em>Computer Scientists will ask in the future, "where were you when ETH fell?"</em></p>
+                </blockquote>
+
+                <p>Today is 27th Oct 2026, and OpenAI has just proven the exponential time hypothesis to be false. That's a very big deal in theoretical computer science because a lot of assumptions were just built on it being true. It was mostly taken to be on the same level as P != NP problem, but alas its not. At this rate, it would be fun to know that we have a proof that P = NP and everyone in the history of computing was just plain wrong (except maybe Donald Knuth). It was not long ago that I was actively thinking about working on a long standing open problem because why not? We are after all ushering in the age of intelligence, and with little to no guidance you may learn a lot, or even solve something previoulsy unsolved. It is also becoming more obvious that most sciences are falling to machinery as time goes, and doing anything other than the right thing, which looks right in hindsight is same as doing nothing.</p>
+
+                <p>As I watched Jascha Sohl-Dickstein's talk on doing the right things in the era of anthropocene, I realise that most things from this point onwards are going to look like playing video games, and thats not necessarily a bad thing. On contrary to what Dickstein presented, I believe that there are millions of problems still left unsolved, we just haven't gotten to them. It may be pointless to solve most problems on your own yes, but have you actually looked around to find the right problems worth solving? The ones that are worth your compute today? The order of solving will remain unsolved as long as problems exist. We are now looking at a fork of what remains to be done. First is ensuring that machines understand us and do not do what we do not want them to do, and the second is unlocking capabilities in making them do things that have never been done before. Its a tightrope walk in between, and for that we go solve intentionality, and what it means to do something in the first place.</p>
+            </article>
+
+            <footer>
+                <a href="../blog.html">&larr; Back to blog</a>
+            </footer>
+        </main>
+    </div>
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+            document.querySelector('.sidebar-overlay').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
